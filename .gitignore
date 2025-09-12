@@ -31,4 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
-src/main/resources/application.properties 
+
+# Variables de entorno con datos sensibles
+.env
+application-local.properties
