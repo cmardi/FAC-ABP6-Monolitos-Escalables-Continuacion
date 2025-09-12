@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8080/api/productos';
+const API_URL = '/api/productos';
 
 // Elementos del DOM
 const productForm = document.getElementById('product-form');
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', loadProducts);
 // Manejar envío del formulario
 productForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     const productData = {
         nombre: document.getElementById('nombre').value,
         precio: parseFloat(document.getElementById('precio').value)
@@ -50,7 +50,7 @@ async function loadProducts() {
         const products = await response.json();
 
         loading.style.display = 'none';
-        
+
         if (products.length === 0) {
             noProducts.style.display = 'block';
             return;
@@ -148,11 +148,11 @@ function editProduct(id, nombre, precio) {
     document.getElementById('product-id').value = id;
     document.getElementById('nombre').value = nombre;
     document.getElementById('precio').value = precio;
-    
+
     formTitle.textContent = '✏️ Editar Producto';
     submitBtn.textContent = 'Actualizar Producto';
     cancelBtn.style.display = 'inline-block';
-    
+
     // Scroll al formulario
     productForm.scrollIntoView({ behavior: 'smooth' });
 }
