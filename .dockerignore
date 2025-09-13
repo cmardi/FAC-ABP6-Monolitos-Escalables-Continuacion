@@ -1,0 +1,47 @@
+# .dockerignore
+# Archivos que NO deben incluirse en la imagen Docker
+
+# Archivos de build de Maven
+target/classes/
+target/test-classes/
+target/maven-status/
+target/surefire-reports/
+target/generated-sources/
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Variables de entorno locales
+.env
+application-local.properties
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentación (se puede incluir si se quiere)
+README.md
+docs/
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Archivos temporales
+*.tmp
+*.temp
+*.bak
