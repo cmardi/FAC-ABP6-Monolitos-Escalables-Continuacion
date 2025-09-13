@@ -1,28 +1,4 @@
-# Dockerfile para Lección 4
-# Multi-stage build para optimizar tamaño de imagen
-
-# Etapa 1: Construcción
-FROM maven:3.8.6-openjdk-17 AS builder
-
-# Establecer directorio de trabajo
-WORKDIR /app
-
-# Copiar archivos de configuración Maven
-COPY pom.xml .
-COPY .mvn/ .mvn/
-COPY mvnw .
-COPY mvnw.cmd .
-
-# Descargar dependencias (se cachea esta capa si pom.xml no cambia)
-RUN mvn dependency:go-offline
-
-# Copiar código fuente
-COPY src/ src/
-
-# Construir la aplicación (saltando tests para imagen más rápida)
-RUN mvn clean package -DskipTests
-
-# Etapa 2: Runtime
+# Dockerfile simplificado - Funciona siempre
 FROM openjdk:17-jdk-slim
 
 # Información del contenedor
@@ -30,7 +6,7 @@ LABEL maintainer="estudiante@monolito-escalable.com"
 LABEL version="1.4.0"
 LABEL description="Monolito Escalable - Lección 4 Docker"
 
-# Instalar herramientas necesarias
+# Instalar curl para health checks
 RUN apt-get update && \
     apt-get install -y curl && \
     rm -rf /var/lib/apt/lists/*
@@ -41,8 +17,8 @@ RUN groupadd -r spring && useradd -r -g spring spring
 # Crear directorio de la aplicación
 WORKDIR /app
 
-# Copiar JAR desde la etapa de construcción
-COPY --from=builder /app/target/monolito-*.jar app.jar
+# Copiar JAR ya construido (debes ejecutar 'mvn package' antes)
+COPY target/monolito-*.jar app.jar
 
 # Cambiar propiedad del archivo al usuario spring
 RUN chown spring:spring app.jar
@@ -54,7 +30,7 @@ USER spring:spring
 EXPOSE 8080
 
 # Variables de entorno por defecto
-ENV JAVA_OPTS="-Xmx512m -Xms256m -XX:+UseG1GC -XX:MaxGCPauseMillis=200"
+ENV JAVA_OPTS="-Xmx512m -Xms256m"
 ENV SPRING_PROFILES_ACTIVE=docker
 
 # Health check para Docker
