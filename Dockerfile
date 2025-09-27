@@ -18,7 +18,7 @@ RUN groupadd -r spring && useradd -r -g spring spring
 WORKDIR /app
 
 # Copiar JAR ya construido (debes ejecutar 'mvn package' antes)
-COPY target/monolito-*.jar app.jar
+COPY target/monolito-escalable-0.0.1-SNAPSHOT.jar app.jar
 
 # Cambiar propiedad del archivo al usuario spring
 RUN chown spring:spring app.jar
@@ -33,9 +33,9 @@ EXPOSE 8080
 ENV JAVA_OPTS="-Xmx512m -Xms256m"
 ENV SPRING_PROFILES_ACTIVE=docker
 
-# Health check para Docker
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-  CMD curl -f http://localhost:8080/api/productos/health || exit 1
+# Health check para Docker (opcional pero recomendado)
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:8080/actuator/health || exit 1
 
 # Comando de inicio
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar /app/app.jar"]
+ENTRYPOINT ["java", "-jar", "/app.jar"]
