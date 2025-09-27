@@ -1,14 +1,15 @@
 # LECCIÓN 3 - ESCALABILIDAD: INCOMPLETA
 
 ## 🎯 OBJETIVOS CUMPLIDOS
-- [x] Security Group configurado
-- [x] Launch Template con Docker y tu imagen ECR
-- [x] Target Group para el Load Balancer
+- [x] Security Group configurado (sg-009992cb39ab89d36)
+- [x] Launch Template con Docker y tu imagen ECR (lt-monolito-leccion3)
+- [x] Target Group para el Load Balancer (tg-monolito-leccion3)
 - [x] Health Check en /actuator/health
-- [ ] Crear Application Load Balancer
-- [ ] Crear Auto Scaling Group
+- [ ] Crear Application Load Balancer (ALB)
+- [ ] Crear Auto Scaling Group (ASG)
 - [ ] Configurar políticas de escalado (CPU > 70%)
 - [ ] Probar distribución de tráfico
+- [ ] **RAMAL:** `leccion-3-escalabilidad`
 
 ## 📊 ARCHIVOS IMPLEMENTADOS
 1. **Deploy-leccion3-corregido.sh** - Creación y corrección script que automatiza el despliegue de una infraestructura escalable en AWS para una aplicación monolítica con las siguientes acciones técnicas:
