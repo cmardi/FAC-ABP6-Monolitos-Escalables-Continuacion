@@ -35,3 +35,8 @@ build/
 # Variables de entorno con datos sensibles
 .env
 application-local.properties
+# Security - Sensitive files
+src/main/resources/application.properties
+*.pem
+*.key
+*.ppk
