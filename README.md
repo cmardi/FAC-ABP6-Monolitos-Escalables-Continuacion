@@ -105,20 +105,20 @@ monolito/
 ## ⚙️ Configuraciones
 
 ### 🔧 Desarrollo Local
-```properties
-spring.datasource.url=jdbc:h2:file:./data/monolitodb
-spring.datasource.username=sa
-spring.datasource.password=
-spring.h2.console.enabled=true
-server.port=8080
+
+`spring.datasource.url=jdbc:h2:file:./data/monolitodb`
+`spring.datasource.username=sa`
+`spring.datasource.password=`
+`spring.h2.console.enabled=true`
+`server.port=8080`
 
 ## Producción AWS ##
 
-spring.datasource.url=jdbc:mysql://db-monolito-new.c8x6eia0ogy7.us-east-1.rds.amazonaws.com:3306/base_prueba
-spring.datasource.username=admin
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
-server.port=8080
+`spring.datasource.url=jdbc:mysql://db-monolito-new.c8x6eia0ogy7.us-east-1.rds.amazonaws.com:3306/base_prueba`
+`spring.datasource.username=admin`
+`spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver`
+`spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect`
+`server.port=8080`
 
 ## 🐳 Dockerización ##
 
