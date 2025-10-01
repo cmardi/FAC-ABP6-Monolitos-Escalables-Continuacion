@@ -40,3 +40,8 @@ src/main/resources/application.properties
 *.pem
 *.key
 *.ppk
+
+# AWS Keys and certificates
+*.pem
+*.key
+monolito-gui-key.pem
