@@ -35,3 +35,7 @@ build/
 # Variables de entorno con datos sensibles
 .env
 application-local.properties
+# AWS Keys and certificates
+*.pem
+*.key
+monolito-gui-key.pem
