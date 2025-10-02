@@ -57,7 +57,7 @@ Auto Scaling Group → EC2 Instances (t3.micro) → Spring Boot App → RDS MySQ
 | 1 | ✅ Completada | TDD + Fundamentos Escalabilidad | `leccion-1-tdd` |
 | 2 | ✅ Completada | App Monolítica en EC2 + RDS MySQL | `leccion-2-monolito-gui` |
 | 3 | ✅ Completada | Auto Scaling + High Availability | `leccion-3-escalabilidad-gui` |
-| 4 | 🟡 En Progreso | Docker + Amazon ECR | `leccion-4-docker-gui` |
+| 4 | ✅ Completada | Docker + Amazon ECR | `leccion-4-docker-gui` |
 | 5 | ❌ Pendiente | SNS/SQS - Mensajería | - |
 | 6 | ❌ Pendiente | Documentación Final | - |
 
