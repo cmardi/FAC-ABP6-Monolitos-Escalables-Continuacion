@@ -1,0 +1,10 @@
+.git
+.gitignore
+README.md
+.mvn/
+mvnw
+mvn.cmd
+HELP.md
+.DS_Store
+**/*.log
+**/node_modules/
