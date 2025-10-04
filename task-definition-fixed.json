@@ -1,0 +1,29 @@
+{
+    "family": "monolito-task",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": ["FARGATE"],
+    "cpu": "256",
+    "memory": "512",
+    "executionRoleArn": "arn:aws:iam::998244282217:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+        {
+            "name": "monolito-container",
+            "image": "998244282217.dkr.ecr.us-east-1.amazonaws.com/appmonolitica:latest",
+            "portMappings": [
+                {
+                    "containerPort": 8080,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/monolito",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ]
+}
